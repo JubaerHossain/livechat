@@ -6,8 +6,7 @@
  * Time: 15:57
  */
 
-namespace Nahid\Talk\Html;
-
+namespace Jubaer\LiveChat\Html;
 
 use Illuminate\Contracts\Support\Htmlable;
 

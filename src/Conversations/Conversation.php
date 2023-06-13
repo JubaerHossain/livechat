@@ -1,6 +1,6 @@
 <?php
 
-namespace Nahid\Talk\Conversations;
+namespace Jubaer\LiveChat\Conversations;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,7 +21,7 @@ class Conversation extends Model
      * */
     public function messages()
     {
-        return $this->hasMany('Nahid\Talk\Messages\Message', 'conversation_id')
+        return $this->hasMany('Jubaer\LiveChat\Messages\Message', 'conversation_id')
             ->with('sender');
     }
 
@@ -32,16 +32,16 @@ class Conversation extends Model
      * */
     public function userone()
     {
-        return $this->belongsTo(config('talk.user.model', 'App\User'),  'user_one', config('talk.user.ownerKey'));
+        return $this->belongsTo(config('talk.user.model', 'App\User'), 'user_one', config('talk.user.ownerKey'));
     }
 
     /*
-   * make a relation between second user from conversation
-   *
-   * return collection
-   * */
+     * make a relation between second user from conversation
+     *
+     * return collection
+     * */
     public function usertwo()
     {
-        return $this->belongsTo(config('talk.user.model', 'App\User'),  'user_two', config('talk.user.ownerKey'));
+        return $this->belongsTo(config('talk.user.model', 'App\User'), 'user_two', config('talk.user.ownerKey'));
     }
 }

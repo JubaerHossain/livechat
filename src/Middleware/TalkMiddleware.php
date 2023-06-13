@@ -1,11 +1,11 @@
 <?php
 
-namespace Nahid\Talk\Middleware;
+namespace Jubaer\LiveChat\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Nahid\Talk\Facades\Talk;
+use Jubaer\LiveChat\Facades\Talk;
 
 class TalkMiddleware
 {

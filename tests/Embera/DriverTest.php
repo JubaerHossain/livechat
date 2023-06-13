@@ -6,13 +6,12 @@
  * Time: 09:36
  */
 
-namespace Nahid\Talk\Tests\Embera;
-
+namespace Jubaer\LiveChat\Tests\Embera;
 
 use Embera\Embera;
-use Nahid\Talk\Embera\Adapter;
-use Nahid\Talk\Tests\Mocks\EmberaMock;
-use Nahid\Talk\Tests\TestCase;
+use Jubaer\LiveChat\Embera\Adapter;
+use Jubaer\LiveChat\Tests\Mocks\EmberaMock;
+use Jubaer\LiveChat\Tests\TestCase;
 
 class DriverTest extends TestCase
 {
@@ -41,22 +40,21 @@ class DriverTest extends TestCase
      */
     private $mockResponse = [
         "embera_using_fake" => 0,
-        "success"           => true,
-        "type"              => "rich",
-        "version"           => "1.0",
-        "provider_name"     => "CodePen",
-        "provider_url"      => "https://codepen.io",
-        "title"             => "Rotation sphare pure css",
-        "author_name"       => "Fabrice Weinberg",
-        "author_url"        => "https://codepen.io/FWeinb/",
-        "height"            => "300",
-        "width"             => "800",
-        "thumbnail_width"   => "384",
-        "thumbnail_height"  => "225",
-        "thumbnail_url"     => "https://s3-us-west-2.amazonaws.com/i.cdpn.io/315.wjzyH.small.61a87aea-b5d6-408a-a6f1-d679e0c32a74.png",
-        "html"              => "<iframe id=\"cp_embed_wjzyH\" src=\"https://codepen.io/FWeinb/embed/preview/wjzyH?height=300&amp;slug-hash=wjzyH&amp;default-tabs=css,result&amp;host=https://codepen.io\" title=\"Rotation sphare pure css\" scrolling=\"no\" frameborder=\"0\" height=\"300\" allowtransparency=\"true\" class=\"cp_embed_iframe\" style=\"width: 100%; overflow: hidden;\"></iframe>"
+        "success" => true,
+        "type" => "rich",
+        "version" => "1.0",
+        "provider_name" => "CodePen",
+        "provider_url" => "https://codepen.io",
+        "title" => "Rotation sphare pure css",
+        "author_name" => "Fabrice Weinberg",
+        "author_url" => "https://codepen.io/FWeinb/",
+        "height" => "300",
+        "width" => "800",
+        "thumbnail_width" => "384",
+        "thumbnail_height" => "225",
+        "thumbnail_url" => "https://s3-us-west-2.amazonaws.com/i.cdpn.io/315.wjzyH.small.61a87aea-b5d6-408a-a6f1-d679e0c32a74.png",
+        "html" => "<iframe id=\"cp_embed_wjzyH\" src=\"https://codepen.io/FWeinb/embed/preview/wjzyH?height=300&amp;slug-hash=wjzyH&amp;default-tabs=css,result&amp;host=https://codepen.io\" title=\"Rotation sphare pure css\" scrolling=\"no\" frameborder=\"0\" height=\"300\" allowtransparency=\"true\" class=\"cp_embed_iframe\" style=\"width: 100%; overflow: hidden;\"></iframe>",
     ];
-
 
     /**
      * @var string
@@ -77,7 +75,7 @@ class DriverTest extends TestCase
         $this->driver = null;
         parent::tearDown();
     }
-    
+
     public function testMessageIsConverted()
     {
         $this->assertEquals($this->expected, $this->driver->autoEmbed($this->message));

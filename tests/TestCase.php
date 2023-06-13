@@ -1,9 +1,9 @@
 <?php
 
-namespace Nahid\Talk\Tests;
+namespace Jubaer\LiveChat\Tests;
 
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
-use Nahid\Talk\TalkServiceProvider;
+use Jubaer\LiveChat\TalkServiceProvider;
 
 /**
  * This is the abstract test case class.

@@ -6,8 +6,7 @@
  * Time: 10:43
  */
 
-namespace Nahid\Talk\Tests\Mocks;
-
+namespace Jubaer\LiveChat\Tests\Mocks;
 
 use Embera\Embera;
 use Embera\HttpRequest;
@@ -21,7 +20,7 @@ class EmberaMock extends Embera
         $mockHttp = $mockBuilder->getMock(HttpRequest::class);
         $mockHttp->method('fetch')
             ->willReturn(json_encode($response));
-        
+
         $this->oembed = new \Embera\Oembed($mockHttp);
         $this->providers = new \Embera\Providers($this->config, $this->oembed);
     }

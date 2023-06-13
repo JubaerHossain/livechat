@@ -1,9 +1,9 @@
 <?php
 
-namespace Nahid\Talk\Tests;
+namespace Jubaer\LiveChat\Tests;
 
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
-use Nahid\Talk\Talk;
+use Jubaer\LiveChat\Talk;
 
 /**
  * This is the service provider test class.

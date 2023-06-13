@@ -6,15 +6,14 @@
  * Time: 16:01
  */
 
-namespace Nahid\Talk\Embera;
-
+namespace Jubaer\LiveChat\Embera;
 
 use Embera\Adapters\Service;
 
 /**
  * Class Adapter
  *
- * @package Nahid\Talk\Embera
+ * @package Jubaer\LiveChat\Embera
  */
 class Adapter extends Service
 {
@@ -47,6 +46,6 @@ class Adapter extends Service
     {
         $parsedUrl = parse_url($this->apiUrl);
 
-        return preg_match('#' . $parsedUrl['host'] . '#i', (string)$this->url);
+        return preg_match('#' . $parsedUrl['host'] . '#i', (string) $this->url);
     }
 }

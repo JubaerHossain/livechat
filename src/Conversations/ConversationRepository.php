@@ -1,16 +1,15 @@
 <?php
 
-namespace Nahid\Talk\Conversations;
+namespace Jubaer\LiveChat\Conversations;
 
-use Nahid\Talk\BaseRepository;
-use SebastianBerc\Repositories\Repository;
+use Jubaer\LiveChat\BaseRepository;
 
 class ConversationRepository extends BaseRepository
 {
     /*
      * this method is default method for repository package
      *
-     * @return  \Nahid\Talk\Conersations\Conversation
+     * @return  \Jubaer\LiveChat\Conersations\Conversation
      * */
     public function takeModel()
     {
@@ -113,7 +112,7 @@ class ConversationRepository extends BaseRepository
                             }
                         )
                         ->latest();
-                }, 'messages.sender', 'userone', 'usertwo'
+                }, 'messages.sender', 'userone', 'usertwo',
             ]
         )
             ->where('user_one', $user)
@@ -126,7 +125,7 @@ class ConversationRepository extends BaseRepository
         $threads = [];
 
         foreach ($msgThread as $thread) {
-            $collection = (object)null;
+            $collection = (object) null;
             $conversationWith = ($thread->userone->id == $user) ? $thread->usertwo : $thread->userone;
             $collection->thread = $thread->messages->first();
             $collection->withUser = $conversationWith;
@@ -150,7 +149,7 @@ class ConversationRepository extends BaseRepository
             [
                 'messages' => function ($q) use ($user) {
                     return $q->latest();
-                }, 'userone', 'usertwo'
+                }, 'userone', 'usertwo',
             ]
         )
             ->where('user_one', $user)->orWhere('user_two', $user)->offset($offset)->take($take)->get();
@@ -196,7 +195,7 @@ class ConversationRepository extends BaseRepository
 
                     $query->offset($offset)->take($take);
 
-                }
+                },
             ]
         )->with(['userone', 'usertwo'])->find($conversationId);
 
@@ -217,7 +216,7 @@ class ConversationRepository extends BaseRepository
                 'messages' => function ($q) use ($offset, $take) {
                     return $q->offset($offset)
                         ->take($take);
-                }, 'userone', 'usertwo'
+                }, 'userone', 'usertwo',
             ]
         )->find($conversationId);
     }

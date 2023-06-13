@@ -1,12 +1,12 @@
 <?php
 
-namespace Nahid\Talk\Messages;
+namespace Jubaer\LiveChat\Messages;
 
 use Embera\Embera;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
-use Nahid\Talk\Html\HtmlString;
-use Nahid\Talk\Html\HtmlStringInterface;
+use Jubaer\LiveChat\Html\HtmlString;
+use Jubaer\LiveChat\Html\HtmlStringInterface;
 
 class Message extends Model implements HtmlStringInterface
 {
@@ -45,14 +45,14 @@ class Message extends Model implements HtmlStringInterface
      * */
     public function conversation()
     {
-        return $this->belongsTo('Nahid\Talk\Conversations\Conversation');
+        return $this->belongsTo('Jubaer\LiveChat\Conversations\Conversation');
     }
 
     /*
-   * make a relation between user model
-   *
-   * @return collection
-   * */
+     * make a relation between user model
+     *
+     * @return collection
+     * */
     public function user()
     {
         return $this->belongsTo(
@@ -63,10 +63,10 @@ class Message extends Model implements HtmlStringInterface
     }
 
     /*
-   * its an alias of user relation
-   *
-   * @return collection
-   * */
+     * its an alias of user relation
+     *
+     * @return collection
+     * */
     public function sender()
     {
         return $this->user();

@@ -1,25 +1,24 @@
 # Laravel-Chat
-LiveChat is a Laravel based user conversation (chatting) system with realtime messaging. You can easily integrate this package with any Laravel based project. It helps you to develop a messaging system in just few minutes. Here is a project screenshot that was developed by LiveChat.   
+
+LiveChat is a Laravel based user conversation (chatting) system with realtime messaging. You can easily integrate this package with any Laravel based project. It helps you to develop a messaging system in just few minutes. Here is a project screenshot that was developed by LiveChat.
 
 LiveChat v1.0.0 supports realtime messaging
-
-
 
 So let's start your tour :)
 
 ### Features
 
-* Head to head messaging
-* Realtime messaging
-* Creating new conversation
-* Message threads with latest one
-* View conversations by user id or conversation id
-* Support pagination in threads and messages
-* Delete (soft delete) message from both end. Sender and receiver can delete their message from their end
-* Permanent delete message
-* Mark message as seen
-* Only participant can view or access there message or message threads
-* Inline url render using oembed specifications
+- Head to head messaging
+- Realtime messaging
+- Creating new conversation
+- Message threads with latest one
+- View conversations by user id or conversation id
+- Support pagination in threads and messages
+- Delete (soft delete) message from both end. Sender and receiver can delete their message from their end
+- Permanent delete message
+- Mark message as seen
+- Only participant can view or access there message or message threads
+- Inline url render using oembed specifications
 
 ### Installation
 
@@ -36,19 +35,19 @@ Wait for a while, Composer will automatically install LiveChat in your project.
 When the download is complete, you have to call this package service in `config/app.php` config file. To do that, add this line in `app.php` in `providers` section:
 
 ```php
-Nahid\Talk\TalkServiceProvider::class,
+Jubaer\LiveChat\TalkServiceProvider::class,
 ```
 
 To use facade you have to add this line in `app.php` in `aliases` array:
 
 ```php
-'Talk'      => Nahid\Talk\Facades\Talk::class,
+'Talk'      => Jubaer\LiveChat\Facades\Talk::class,
 ```
 
 Now run this command in your terminal to publish this package resources:
 
 ```
-php artisan vendor:publish --provider="Nahid\Talk\TalkServiceProvider"
+php artisan vendor:publish --provider="Jubaer\LiveChat\TalkServiceProvider"
 ```
 
 After running this command, all necessary file will be included in your project. This package has two default migrations. So you have to run migrate command like this. (But make sure your database configuration is configured correctly.)
@@ -98,39 +97,35 @@ return [
 ];
 ```
 
-
 ### Usage
 
 Its very easy to use. If you want to set authenticate user id globally then you have to set a middleware first. Go to `app/Http/Kernel.php` and set it in `$routeMiddleware` array:
 
- ```php
- 'talk'  =>  \Nahid\Talk\Middleware\TalkMiddleware::class,
- ```
+```php
+'talk'  =>  \Jubaer\LiveChat\Middleware\TalkMiddleware::class,
+```
 
- And now you can use it from anywhere with middleware. Suppose you have a Controller and you want to set authenticate user id globally then write this in controller constructor:
+And now you can use it from anywhere with middleware. Suppose you have a Controller and you want to set authenticate user id globally then write this in controller constructor:
 
- 
- ```php
- $this->middleware('talk');
- ```
- 
+```php
+$this->middleware('talk');
+```
+
 But instead of set id globally you can use these procedure from any method in controller:
-
 
 ```php
 Talk::setAuthUserId(auth()->user()->id);
 ```
-
 
 Now you may use any method what you need. But if want pass authentic id instantly, this method may help you:
 
 ```php
 Talk::user(auth()->user()->id)->anyMethodHere();
 ```
+
 Please see the API Doc.
 
 ### API List
-
 
 - [setAuthUserId](https://github.com/nahid/talk#setauthuserid)
 - [user](https://github.com/nahid/talk#user)
@@ -157,7 +152,6 @@ Please see the API Doc.
 - [deleteForever](https://github.com/nahid/talk#deleteforever)
 - [deleteConversations](https://github.com/nahid/talk#deleteconversations)
 
-
 ### setAuthUserId
 
 `setAuthUserId` method sets the currently loggedin user id, which you pass through parameter. If you pass `null` or `empty` value then it returns false.
@@ -170,7 +164,7 @@ void setAuthUserId($userid)
 
 **Example**
 
-Constructor of a Controller is the best place to write this method. 
+Constructor of a Controller is the best place to write this method.
 
 ```php
 function __construct()
@@ -189,6 +183,7 @@ You may use this method instead of `setAuthUserId()` method. When you have to in
 ```php
 object user($id)
 ```
+
 **Example**
 When you haven't set authenticated user id globally, then you just use this method directly with others method.
 
@@ -212,12 +207,12 @@ int|false isConversationExists($userid)
 ```php
 if ($conversationId = Talk::isConversationExists($userId)) {
     Talk::sendMessage($conversationId, $message);
-} 
+}
 ```
 
 ### isAuthenticUser
 
-isAuthenticUser checks if  the given user exists in given conversation.
+isAuthenticUser checks if the given user exists in given conversation.
 
 **Syntax**
 
@@ -230,7 +225,7 @@ boolean isAuthenticUser($conversationId, $userId)
 ```php
 if (Talk::isAuthenticUser($conversationId, $userId)) {
     Talk::sendMessage($conversationId, $message);
-} 
+}
 ```
 
 ### sendMessage
@@ -272,7 +267,6 @@ If you want to get all the inboxes except soft deleted message , this method may
 array getInbox([$order = 'desc'[,$offset = 0[, $take = 20]]])
 ```
 
-
 **Example**
 
 ```php
@@ -284,13 +278,13 @@ return view('message.threads', compact('inboxes'));
 ```html
 <!-- messages/threads.blade.php -->
 <ul>
-    @foreach($inboxes as $inbox)
-        <li>
-            <h2>{{$inbox->withUser->name}}</h2>
-            <p>{{$inbox->thread->message}}</p>
-            <span>{{$inbox->thread->humans_time}}</span>
-        </li>
-    @endforeach
+  @foreach($inboxes as $inbox)
+  <li>
+    <h2>{{$inbox->withUser->name}}</h2>
+    <p>{{$inbox->thread->message}}</p>
+    <span>{{$inbox->thread->humans_time}}</span>
+  </li>
+  @endforeach
 </ul>
 ```
 
@@ -314,7 +308,6 @@ This method is an alias of `getInbox()` method.
 array threads([$order = 'desc'[,$offset = 0[, $take = 20]]])
 ```
 
-
 ### threadsAll
 
 This method is an alias of `getInboxAll()` method.
@@ -326,7 +319,6 @@ array threadsAll([$order = 'desc'[,$offset = 0[, $take = 20]]])
 ```
 
 ### getConversationsById
-
 
 When you want to get all the conversations using your desire conversation id, you can try this method. This method returns all the conversations (except soft deleted) with `sender` and `withUser` objects
 
@@ -346,6 +338,7 @@ $withUser = $conversations->withUser;
 
 return view('messages.conversations', compact('messages', 'withUser'));
 ```
+
 This method returns two objects `messages` and `withUser`. `messages` object contains messages collection and `withUser` object contains participant User collections.
 
 Let's see how to use it with your views
@@ -353,16 +346,14 @@ Let's see how to use it with your views
 ```html
 <!-- messages/conversations.blade.php -->
 <div class="message-container">
-    <h2>Chat with {{$withUser->name}}</h2>
-    @foreach ($messages as $msg)
-     <div class="message">
-        <h4>{{$msg->sender->name}}</h4>
-        <span>{{$msg->humans_time}}</span>
-        <p>
-            {{$msg->message}}
-       </p> 
-    </div>
-    @endforeach
+  <h2>Chat with {{$withUser->name}}</h2>
+  @foreach ($messages as $msg)
+  <div class="message">
+    <h4>{{$msg->sender->name}}</h4>
+    <span>{{$msg->humans_time}}</span>
+    <p>{{$msg->message}}</p>
+  </div>
+  @endforeach
 </div>
 ```
 
@@ -375,6 +366,7 @@ This method is similar as `getConversationsById()`. The only difference between 
 ```php
 array getConversationsAllById($conversationId[, $offset = 0[, $take = 20]])
 ```
+
 ### getConversationsByUserId
 
 When you want to get all the conversations using your desire receiver id, you can try this method. This method returns all the conversations (except soft deleted message) with user's objects
@@ -397,7 +389,7 @@ array getConversationsAllByUserId($receiverId[, $offset = 0[, $take = 20]])
 
 ### getMessages
 
-This is a alias of  `getConversationsById()` method.
+This is a alias of `getConversationsById()` method.
 
 **Syntax**
 
@@ -407,7 +399,7 @@ array messages($conversationId[, $offset = 0[, $take = 20]])
 
 ### getMessagesAll
 
-This is a alias of  `getConversationsAllById()` method.
+This is a alias of `getConversationsAllById()` method.
 
 **Syntax**
 
@@ -417,7 +409,7 @@ array messagesAll($conversationId[, $offset = 0[, $take = 20]])
 
 ### getMessagesByUserId
 
-This is a alias of  `getConversationsByUserId()` method.
+This is a alias of `getConversationsByUserId()` method.
 
 **Syntax**
 
@@ -425,10 +417,9 @@ This is a alias of  `getConversationsByUserId()` method.
 array messagesByUserId($receiverId[, $offset = 0[, $take = 20]])
 ```
 
-
 ### getMessagesAllByUserId
 
-This is a alias of  `getConversationsAllByUserId()` method.
+This is a alias of `getConversationsAllByUserId()` method.
 
 **Syntax**
 
@@ -448,7 +439,7 @@ array readMessage($messageId)
 
 ### getReceiverInfo
 
-This method returns all the information about message receiver. 
+This method returns all the information about message receiver.
 
 > This method is deprecated from version 2.0.0 and it will be removed from version 2.0.2
 
@@ -551,7 +542,7 @@ Go to where you want to subscribe to work with message data follow this code.
 <script>
     var msgshow = function(data) {
         // write what you want with this data
-        
+
         console.log(data);
     }
 </script>
@@ -577,18 +568,16 @@ Eg. `This is a youtube embed link: https://www.youtube.com/watch?v=jNQXAC9IVRw`
 
 ```html
 <div class="message-container">
-    <h2>Chat with {{$withUser->name}}</h2>
-    @foreach ($messages as $msg)
-     <div class="message">
-        <h4>{{$msg->sender->name}}</h4>
-        <span>{{$msg->humans_time}}</span>
-        <p>
-            {{$msg->toHtmlString()}}
-       </p> 
-    </div>
-    @endforeach
+  <h2>Chat with {{$withUser->name}}</h2>
+  @foreach ($messages as $msg)
+  <div class="message">
+    <h4>{{$msg->sender->name}}</h4>
+    <span>{{$msg->humans_time}}</span>
+    <p>{{$msg->toHtmlString()}}</p>
+  </div>
+  @endforeach
 </div>
-``` 
+```
 
 ## Custom embed link
 
@@ -606,9 +595,10 @@ If you want to setup your own implementation of oembed you can configure it in t
         'key' => 'yout-auth-api-key'
     ]
 ```
+
 ### Testing
 
-Talk is backwards compatible with php 5.5.  Use docker to run unit tests.
+Talk is backwards compatible with php 5.5. Use docker to run unit tests.
 
 ```bash
 docker-compose run php55 composer install
@@ -631,5 +621,3 @@ docker-compose run hhvm phpunit
 ```
 
 ### This package extends version of [nahid/talk](https://github.com/nahid/talk)
-
-

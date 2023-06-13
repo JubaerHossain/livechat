@@ -6,13 +6,12 @@
  * Time: 09:14
  */
 
-namespace Nahid\Talk\Tests\Html;
-
+namespace Jubaer\LiveChat\Tests\Html;
 
 use Embera\Embera;
 use Illuminate\Contracts\Support\Htmlable;
-use Nahid\Talk\Html\HtmlString;
-use Nahid\Talk\Tests\TestCase;
+use Jubaer\LiveChat\Html\HtmlString;
+use Jubaer\LiveChat\Tests\TestCase;
 
 class HtmlStringTest extends TestCase
 {

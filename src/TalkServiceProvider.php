@@ -1,13 +1,13 @@
 <?php
 
-namespace Nahid\Talk;
+namespace Jubaer\LiveChat;
 
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
+use Jubaer\LiveChat\Conversations\ConversationRepository;
+use Jubaer\LiveChat\Messages\MessageRepository;
 use Laravel\Lumen\Application as LumenApplication;
-use Nahid\Talk\Conversations\ConversationRepository;
-use Nahid\Talk\Messages\MessageRepository;
 
 class TalkServiceProvider extends ServiceProvider
 {
@@ -38,11 +38,11 @@ class TalkServiceProvider extends ServiceProvider
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([$source => config_path('talk.php')]);
         }
-        
+
         if ($this->app instanceof LumenApplication) {
             $this->app->configure('talk');
         }
-        
+
         $this->mergeConfigFrom($source, 'talk');
     }
     /**

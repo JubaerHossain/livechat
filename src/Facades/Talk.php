@@ -1,6 +1,6 @@
 <?php
 
-namespace Nahid\Talk\Facades;
+namespace Jubaer\LiveChat\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,8 +1,6 @@
 <?php
 
-
-namespace Nahid\Talk;
-
+namespace Jubaer\LiveChat;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,14 +33,12 @@ abstract class BaseRepository
         return $this->model;
     }
 
-
     public function update($id, $data)
     {
         $model = $this->model->find($id);
 
         return $model->update($data);
     }
-
 
     public function create($data)
     {

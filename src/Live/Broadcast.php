@@ -1,10 +1,10 @@
 <?php
 
-namespace Nahid\Talk\Live;
+namespace Jubaer\LiveChat\Live;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Contracts\Config\Repository;
-use Nahid\Talk\Messages\Message;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Jubaer\LiveChat\Messages\Message;
 use Pusher\Pusher;
 use Pusher\PusherException;
 
@@ -20,18 +20,17 @@ class Broadcast
     const CONFIG_PATH = 'talk';
 
     /*
-   * Set all configs from talk configurations
-   *
-   * @var array
-   * */
+     * Set all configs from talk configurations
+     *
+     * @var array
+     * */
     protected $config;
 
-
     /*
-   * Pusher instance
-   *
-   * @var object
-   * */
+     * Pusher instance
+     *
+     * @var object
+     * */
     public $pusher;
 
     /**

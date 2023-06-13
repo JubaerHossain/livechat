@@ -5,13 +5,12 @@
  * Date: 29/10/2018
  * Time: 09:13
  */
-namespace Nahid\Talk\Tests\Messages;
+namespace Jubaer\LiveChat\Tests\Messages;
 
-
-use Nahid\Talk\Html\HtmlString;
-use Nahid\Talk\Html\HtmlStringInterface;
-use Nahid\Talk\Messages\Message;
-use Nahid\Talk\Tests\TestCase;
+use Jubaer\LiveChat\Html\HtmlString;
+use Jubaer\LiveChat\Html\HtmlStringInterface;
+use Jubaer\LiveChat\Messages\Message;
+use Jubaer\LiveChat\Tests\TestCase;
 
 class MessageTest extends TestCase
 {
@@ -19,13 +18,13 @@ class MessageTest extends TestCase
      * @var  Message
      */
     private $message;
-    
+
     public function setUp()
     {
         parent::setUp();
         $this->message = new Message(['message' => 'test message']);
     }
-    
+
     public function tearDown()
     {
         $this->message = null;
@@ -36,7 +35,7 @@ class MessageTest extends TestCase
     {
         $this->assertInstanceOf(HtmlStringInterface::class, $this->message);
     }
-    
+
     public function testToHtmlString()
     {
         $this->assertInstanceOf(HtmlString::class, $this->message->toHtmlString());

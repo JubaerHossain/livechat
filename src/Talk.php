@@ -9,13 +9,13 @@
  * @license https://github.com/nahid/apiz/blob/master/LICENSE (MIT)
  */
 
-namespace Nahid\Talk;
+namespace Jubaer\LiveChat;
 
 use Illuminate\Contracts\Config\Repository;
-use Nahid\Talk\Conversations\ConversationRepository;
-use Nahid\Talk\Messages\Message;
-use Nahid\Talk\Messages\MessageRepository;
-use Nahid\Talk\Live\Broadcast;
+use Jubaer\LiveChat\Conversations\ConversationRepository;
+use Jubaer\LiveChat\Live\Broadcast;
+use Jubaer\LiveChat\Messages\Message;
+use Jubaer\LiveChat\Messages\MessageRepository;
 
 class Talk
 {
@@ -184,7 +184,7 @@ class Talk
      * instant users information, you may use it
      *
      * @param   int $id
-     * @return  \Nahid\Talk\Talk|bool
+     * @return  \Jubaer\LiveChat\Talk|bool
      * */
     public function user($id = null)
     {

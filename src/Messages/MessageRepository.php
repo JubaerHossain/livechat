@@ -1,9 +1,8 @@
 <?php
 
-namespace Nahid\Talk\Messages;
+namespace Jubaer\LiveChat\Messages;
 
-use Nahid\Talk\BaseRepository;
-use SebastianBerc\Repositories\Repository;
+use Jubaer\LiveChat\BaseRepository;
 
 class MessageRepository extends BaseRepository
 {
@@ -34,7 +33,7 @@ class MessageRepository extends BaseRepository
             $message->deleted_from_receiver = 1;
         }
 
-        return (boolean) $this->update($messageId,$message);
+        return (boolean) $this->update($messageId, $message);
 
     }
 }

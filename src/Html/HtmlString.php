@@ -1,11 +1,10 @@
 <?php
 
-namespace Nahid\Talk\Html;
-
+namespace Jubaer\LiveChat\Html;
 
 use Embera\Embera;
 use Illuminate\Contracts\Support\Htmlable;
-use Nahid\Talk\Embera\Adapter;
+use Jubaer\LiveChat\Embera\Adapter;
 
 class HtmlString implements Htmlable
 {
