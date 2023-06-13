@@ -1,6 +1,6 @@
 {
   "name": "jubaer/livechat",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "LiveChat is a Laravel based realtime messaging, chatting and conversation system. It helps to develop users messaging, chatting and conversations in easy way.",
   "keywords": [
     "message",
