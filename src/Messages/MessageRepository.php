@@ -34,7 +34,7 @@ class MessageRepository extends BaseRepository
             $message->deleted_from_receiver = 1;
         }
 
-        return (boolean) $this->update($message);
+        return (boolean) $this->update($messageId,$message);
 
     }
 }
