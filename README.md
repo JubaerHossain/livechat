@@ -632,9 +632,4 @@ docker-compose run hhvm phpunit
 
 ### This package extends version of [nahid/talk](https://github.com/nahid/talk)
 
-#### Special Thanks To
-[Nahid Bin Azhar](https://github.com/nahid)
-
-Thanks :)
-
 
