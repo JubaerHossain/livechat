@@ -1,0 +1,61 @@
+{
+  "name": "jubaer/livechat",
+  "description": "LiveChat is a Laravel based realtime messaging, chatting and conversation system. It helps to develop users messaging, chatting and conversations in easy way.",
+  "keywords": [
+    "message",
+    "inbox",
+    "conversations",
+    "chat",
+    "php",
+    "laravel",
+    "realtime",
+    "real-time"
+  ],
+  "homepage": "https://github.com/JubaerHossain/livechat",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "jubaer hossain",
+      "email": "jubaer01.cse@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "illuminate/contracts": "*",
+    "illuminate/support": "*",
+    "nesbot/carbon": "^2.67",
+    "pusher/pusher-php-server": "^7.2",
+    "predis/predis": "^2.1",
+    "mpratt/embera": "~2.0"
+  },
+  "require-dev": {
+    "ext-json": "*",
+    "graham-campbell/testbench": "^5.7",
+    "phpunit/phpunit": "^4.8 || ^5.0 || ^7.0 || ^8.0 || ^9.5.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nahid\\Talk\\": "src"
+    },
+    "files": [
+      "src/helpers/talk.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Nahid\\Talk\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Nahid\\Talk\\TalkServiceProvider"
+      ],
+      "aliases": {
+        "Talk": "Nahid\\Talk\\Facades\\Talk"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
