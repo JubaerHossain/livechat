@@ -36,7 +36,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Nahid\\Talk\\": "src"
+      "Jubaer\\LiveChat\\": "src"
     },
     "files": [
       "src/helpers/talk.php"
@@ -44,16 +44,16 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Nahid\\Talk\\Tests\\": "tests"
+      "Jubaer\\LiveChat\\Tests\\": "tests"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Nahid\\Talk\\TalkServiceProvider"
+        "Jubaer\\LiveChat\\TalkServiceProvider"
       ],
       "aliases": {
-        "Talk": "Nahid\\Talk\\Facades\\Talk"
+        "Talk": "Jubaer\\LiveChat\\Facades\\Talk"
       }
     }
   },
